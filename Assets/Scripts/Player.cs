@@ -21,9 +21,9 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        float currentMaxSpeed = speedMax * moveRawMagnitude;
+        float currentSpeedMax = speedMax * moveRawMagnitude;
         if (moveRaw != Vector2.zero)
-            move = Vector2.ClampMagnitude(move + moveRaw * speed * Time.deltaTime, currentMaxSpeed);
+            move = Vector2.ClampMagnitude(move + moveRaw * speed * Time.deltaTime, currentSpeedMax);
         else
             move = Vector2.Lerp(move, Vector2.zero, friction * Time.deltaTime);
 
