@@ -12,13 +12,14 @@ public class RoofedAreaTrigger : MonoBehaviour
 
     private void Awake()
     {
-        mainCam = Camera.main;   
+        mainCam = Camera.main;
     }
 
     private void LateUpdate()
     {
         if (playerIsInside)
         {
+            Color c;
             mainCam.backgroundColor = Color.Lerp(mainCam.backgroundColor, Color.black, colorLerp);
         }
         else
