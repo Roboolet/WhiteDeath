@@ -19,7 +19,11 @@ public class Player : MonoBehaviour
     [SerializeField] ContactFilter2D contactFilter;
     Interactable selected;
 
+    [Header("References")]
+    [SerializeField] Animator anim;
+
     Item heldItem;
+    AnimationDirection animDir;
 
     #region Movement
     Vector2 move, moveRaw;
@@ -53,6 +57,17 @@ public class Player : MonoBehaviour
 
         // deselect when too far away
         if (selected != null && Vector2.Distance(transform.position, selected.transform.position) > selected.deselectDistance) SelectInteractable(null);
+
+        // Makes the animator choose what direction to face
+        // Anti-clockwise
+        Vector2 norm = moveRaw.normalized;
+        if (norm.x <= -0.5f) animDir = AnimationDirection.Left;
+        else if (norm.x >= 0.5f) animDir = AnimationDirection.Right;
+        else if (norm.y <= -0.5f) animDir = AnimationDirection.Down;
+        else if (norm.y >= 0.5f) animDir = AnimationDirection.Up;
+        
+        anim.SetInteger("Dir", (int)animDir);
+        anim.SetFloat("Vel", move.sqrMagnitude * 100);
 
     }
 
@@ -138,4 +153,12 @@ public class Player : MonoBehaviour
         if (output != null) return true;
         else return false;
     }
+}
+
+public enum AnimationDirection
+{
+    Up,
+    Left,
+    Down,
+    Right
 }
