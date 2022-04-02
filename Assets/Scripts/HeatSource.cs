@@ -5,7 +5,7 @@ using UnityEngine;
 public class HeatSource : MonoBehaviour
 {
     [Header("Ticks")]
-    [SerializeField] float tickWaitTime;
+    public float tickWaitTime;
     float lastTick;
 
     [Header("Heat Settings")]
@@ -15,12 +15,12 @@ public class HeatSource : MonoBehaviour
 
     Thermometer[] thermometers;
 
-    private void Start()
+    protected virtual void Start()
     {
         thermometers = FindObjectsOfType<Thermometer>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (lastTick + tickWaitTime < Time.time)
         {
@@ -29,7 +29,7 @@ public class HeatSource : MonoBehaviour
         }
     }
 
-    void Tick()
+    protected virtual void Tick()
     {
         for(int i = 0; i < thermometers.Length; i++)
         {
