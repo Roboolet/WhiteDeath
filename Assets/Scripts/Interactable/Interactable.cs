@@ -16,8 +16,6 @@ public abstract class Interactable : MonoBehaviour
 
     protected virtual void Awake()
     {
-        // layer 6 is "Interactable"
-        gameObject.layer = 6;
     }
 
     public void Prime()

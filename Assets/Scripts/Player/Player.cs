@@ -115,7 +115,7 @@ public class Player : MonoBehaviour
     {
         output = null;
 
-        Collider2D[] colls = new Collider2D[4];
+        Collider2D[] colls = new Collider2D[6];
         if (Physics2D.OverlapCircle(transform.position, checkRadius, contactFilter: contactFilter, colls) >= 1)
         {
             float shortestDist = Mathf.Infinity;
