@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
         }
 
         // deselect when too far away
-        if (selected != null && Vector2.Distance(transform.position, selected.transform.position) > checkRadius) SelectInteractable(null);
+        if (selected != null && Vector2.Distance(transform.position, selected.transform.position) > selected.deselectDistance) SelectInteractable(null);
 
     }
 

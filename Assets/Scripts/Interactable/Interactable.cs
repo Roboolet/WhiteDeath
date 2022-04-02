@@ -6,6 +6,7 @@ using Items;
 public abstract class Interactable : MonoBehaviour
 {
     public bool primed { get; private set; }
+    public float deselectDistance;
 
     public bool takeInsertedItem;
     [SerializeField] protected ItemType[] allowedInserts;
