@@ -7,7 +7,7 @@ public abstract class Interactable : MonoBehaviour
 {
     public bool primed { get; private set; }
 
-    protected bool stopAllInserts;
+    public bool takeInsertedItem;
     [SerializeField] protected ItemType[] allowedInserts;
 
     [SerializeField] protected SpriteRenderer spriteRenderer;
@@ -67,8 +67,6 @@ public abstract class Interactable : MonoBehaviour
     /// <returns></returns>
     public bool TryInsert(Item item)
     {
-        if (stopAllInserts) return false;
-
         for(int i = 0; i < allowedInserts.Length; i++)
         {
             if(allowedInserts[i] == item.type)

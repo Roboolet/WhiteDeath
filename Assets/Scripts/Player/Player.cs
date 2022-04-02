@@ -61,7 +61,20 @@ public class Player : MonoBehaviour
         current = this;
     }
 
-    public void Input_Interact(CallbackContext input) { if(selected != null) selected.Use(); }
+    public void Input_Interact(CallbackContext input)
+    {
+        if (selected != null)
+        {
+            if (heldItem == null) selected.Use();
+            else
+            {
+                if (selected.TryInsert(heldItem) && selected.takeInsertedItem)
+                {
+                    heldItem = null;
+                }
+            }
+        }
+    }
 
     public void Input_Drop(CallbackContext input)
     {
