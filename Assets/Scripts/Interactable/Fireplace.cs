@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Items;
 
 [RequireComponent(typeof(HeatSource))]
 public class Fireplace : Interactable

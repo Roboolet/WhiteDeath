@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
+using Items;
 
 public class Player : MonoBehaviour
 {
+    public static Player current;
+
     [Header("Movement Settings")]
     [SerializeField] float speed;
     [SerializeField] float speedMax;
@@ -16,15 +19,13 @@ public class Player : MonoBehaviour
     [SerializeField] ContactFilter2D contactFilter;
     Interactable selected;
 
-    #region Movement and input stuff
+    Item heldItem;
+
+    #region Movement
     Vector2 move, moveRaw;
     float moveRawMagnitude;
 
     public void Input_Move(CallbackContext input) { moveRaw = input.ReadValue<Vector2>(); }
-
-    public void Input_Interact(CallbackContext input) { }
-
-    public void Input_Drop(CallbackContext input) { }
 
     private void FixedUpdate()
     {
@@ -54,6 +55,35 @@ public class Player : MonoBehaviour
         if (selected != null && Vector2.Distance(transform.position, selected.transform.position) > checkRadius) SelectInteractable(null);
 
     }
+
+    private void Awake()
+    {
+        current = this;
+    }
+
+    public void Input_Interact(CallbackContext input) { if(selected != null) selected.Use(); }
+
+    public void Input_Drop(CallbackContext input)
+    {
+        if (heldItem != null)
+        {
+            ItemDropper.current.DropItem(heldItem, transform.position);
+            heldItem = null;
+        }
+        
+    }
+
+    public bool TryPickUp(Item item)
+    {
+        if (heldItem == null)
+        {
+            heldItem = item;
+            return true;
+        }
+        else return false;
+    }
+
+
 
     void SelectInteractable(Interactable inter)
     {

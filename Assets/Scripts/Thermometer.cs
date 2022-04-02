@@ -28,7 +28,6 @@ public class Thermometer : MonoBehaviour
     private void Update()
     {
         Temperature -= entropy * entropyMult * Time.deltaTime;
-        Debug.Log(Temperature);
     }
 
     public void AddTemperature(float amount)

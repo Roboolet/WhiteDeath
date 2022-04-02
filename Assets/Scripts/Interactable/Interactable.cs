@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Items;
 
 public abstract class Interactable : MonoBehaviour
 {
@@ -52,10 +53,12 @@ public abstract class Interactable : MonoBehaviour
         spriteRenderer.sprite = sprite_unprimed;
     }
 
+    public void Use() => OnUse();
+
     /// <summary>
     /// Called when a player presses the interact button near this object
     /// </summary>
-    public virtual void OnUse() { }
+    protected virtual void OnUse() { }
 
     /// <summary>
     /// Try to insert the given item, returns false if it can't be inserted
