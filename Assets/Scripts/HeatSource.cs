@@ -8,6 +8,8 @@ public class HeatSource : MonoBehaviour
     public float tickWaitTime;
     float lastTick;
 
+    public float tickWaitTimeMultiplier = 1;
+
     [Header("Heat Settings")]
     public float intensity;
     public float range;
@@ -22,7 +24,7 @@ public class HeatSource : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (lastTick + tickWaitTime < Time.time)
+        if (lastTick + tickWaitTime * tickWaitTimeMultiplier < Time.time)
         {
             lastTick = Time.time;
             Tick();
