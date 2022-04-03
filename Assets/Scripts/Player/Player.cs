@@ -21,11 +21,11 @@ public class Player : MonoBehaviour
 
     [Header("References")]
     [SerializeField] Animator anim;
+    [SerializeField] PlayerThermometer thermometer;
 
     Item heldItem;
     AnimationDirection animDir;
 
-    #region Movement
     Vector2 move, moveRaw;
     float moveRawMagnitude;
 
@@ -33,9 +33,10 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.Translate(move);
+        float mult = Mathf.Clamp(1.2f - thermometer.NormalizedColdness, 0.25f, 1);
+        transform.Translate(move * mult);
+        anim.SetFloat("Speed", mult);
     }
-    #endregion
 
     private void Update()
     {
