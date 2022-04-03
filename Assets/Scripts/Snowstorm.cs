@@ -17,7 +17,6 @@ public class Snowstorm : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<PlayerThermometer>();
-        StartCountdown();
     }
 
     public void StartCountdown()
@@ -58,8 +57,16 @@ public class Snowstorm : MonoBehaviour
         var mainW = ps_white.main;
         var mainB = ps_black.main;
 
-        mainW.startLifetime = particleLifetime / mult;
-        mainB.startLifetime = particleLifetime / mult;
+        if (mult < 1)
+        {
+            mainW.startLifetime = particleLifetime / mult;
+            mainB.startLifetime = particleLifetime / mult;
+        }
+        else
+        {
+            mainW.startLifetime = particleLifetime * mult;
+            mainB.startLifetime = particleLifetime * mult;
+        }
 
         ps_forcefield.directionX = wind * mult;
     }
