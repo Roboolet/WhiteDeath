@@ -20,6 +20,8 @@ public class Thermometer : MonoBehaviour
         }
     }
 
+    public float NormalizedColdness => 1 - (_Temperature - temperatureMin) / (temperatureMax - temperatureMin);
+
     private void Start()
     {
         Temperature = startTemperature;

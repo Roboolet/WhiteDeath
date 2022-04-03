@@ -8,6 +8,7 @@ public class Fireplace : Interactable
 {
     [Header("Fireplace settings")]
     [SerializeField] float maxTimeLeft;
+    [SerializeField] float minHeatRate;
     float timeLeft;
 
     HeatSource heatSource;
@@ -35,6 +36,7 @@ public class Fireplace : Interactable
 
         flames.gameObject.SetActive(true);
         flames.Play();
+        heatSource.isEmitting = true;
     }
 
     private void Update()
@@ -50,13 +52,14 @@ public class Fireplace : Interactable
             flames_emission.rateOverTimeMultiplier = flames_emissionOriginalROT * normalizedBurntime;
             shape.radius = normalizedBurntime + 0.2f;
 
-            heatSource.tickWaitTimeMultiplier = 1 - normalizedBurntime;
+            heatSource.tickWaitTimeMultiplier = Mathf.Max(minHeatRate, 1 - normalizedBurntime);
 
             timeLeft -= Time.deltaTime;
         }
         else
         {
             if (flames.isEmitting) flames.Stop();
+            if (heatSource.isEmitting) heatSource.isEmitting = false;
         }
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HeatSource : MonoBehaviour
 {
+    public bool isEmitting;
+
     [Header("Ticks")]
     public float tickWaitTime;
     float lastTick;
@@ -24,10 +26,13 @@ public class HeatSource : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (lastTick + tickWaitTime * tickWaitTimeMultiplier < Time.time)
+        if (isEmitting)
         {
-            lastTick = Time.time;
-            Tick();
+            if (lastTick + tickWaitTime * tickWaitTimeMultiplier < Time.time)
+            {
+                lastTick = Time.time;
+                Tick();
+            }
         }
     }
 
