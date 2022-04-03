@@ -4,15 +4,44 @@ using UnityEngine;
 
 public class Snowstorm : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] float secondsUntilStorm;
+    [Space]
+    [SerializeField] float particleRate;
+    [SerializeField] float particleLifetime, wind;
+    [SerializeField] ParticleSystem ps_white, ps_black;
+    [SerializeField] ParticleSystemForceField ps_forcefield;
+
+    bool started;
+
+    private void Start()
     {
-        
+        StartCountdown();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartCountdown()
     {
-        
+        if (!started)
+        {
+            started = true;
+            StartCoroutine("StormCountdown");
+        }
+    }
+
+    IEnumerator StormCountdown()
+    {
+        yield return new WaitForSeconds(secondsUntilStorm);
+        var emissionW = ps_white.emission;
+        var emissionB = ps_black.emission;
+
+        emissionW.rateOverTimeMultiplier = particleRate;
+        emissionB.rateOverTimeMultiplier = particleRate;
+
+        var mainW = ps_white.main;
+        var mainB = ps_black.main;
+
+        mainW.startLifetime = particleLifetime;
+        mainB.startLifetime = particleLifetime;
+
+        ps_forcefield.directionX = wind;
     }
 }
