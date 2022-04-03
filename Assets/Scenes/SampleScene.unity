@@ -11370,6 +11370,12 @@ MonoBehaviour:
   sprite_unprimed: {fileID: 5813407304463582671, guid: d9af063f1e83b5a499ae2820e785085f, type: 3}
   choppedSprite: {fileID: -6804362155169470884, guid: d9af063f1e83b5a499ae2820e785085f, type: 3}
   chopsLeft: 2
+  possibleDrops:
+  - {fileID: 11400000, guid: a6e139a6deca41f40a8d349e1335294a, type: 2}
+  - {fileID: 11400000, guid: 3f04f08c39768f64586da971d91c2de0, type: 2}
+  - {fileID: 11400000, guid: ea0b03e95df28e64fa87ad6eebe714b7, type: 2}
+  - {fileID: 11400000, guid: a80d2f42bc62d964db2fe78fed77bf50, type: 2}
+  numDrops: 2
 --- !u!95 &900258105
 Animator:
   serializedVersion: 3
@@ -11459,7 +11465,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1217182146
 Transform:
   m_ObjectHideFlags: 0
@@ -11513,8 +11519,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -6804362155169470884, guid: d9af063f1e83b5a499ae2820e785085f, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: -6127079908986293366, guid: d9af063f1e83b5a499ae2820e785085f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
