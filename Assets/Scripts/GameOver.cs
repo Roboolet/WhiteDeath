@@ -58,12 +58,14 @@ public class GameOver : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(2f);
         tmp.text = "I guess this is how it ends";
-        yield return new WaitForSecondsRealtime(4f);
+        yield return new WaitForSecondsRealtime(3.5f);
         tmp.text = "";
 
         yield return new WaitForSecondsRealtime(4f);
         tmp.text = "Created by Roboolet";
         yield return new WaitForSecondsRealtime(2f);
         tmp.text = "Created by Roboolet\nThanks for playing!";
+        yield return new WaitForSecondsRealtime(3.5f);
+        tmp.text = "";
     }
 }

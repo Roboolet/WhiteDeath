@@ -21,6 +21,7 @@ public class Tree : Interactable
     {
         base.OnInsert(item);
         chopsLeft -= (item as Axe).hitsPerSwing;
+        SFXLib.current.Play("tree_hit");
 
         if (chopsLeft <= 0 && canFall)
         {
@@ -38,5 +39,7 @@ public class Tree : Interactable
             Vector2 pos = transform.position + Random.Range(-4f, -1) * transform.right + Random.Range(-0.4f, 0.4f) * transform.up;
             ItemDropper.current.DropItem(possibleDrops[Random.Range(0, possibleDrops.Length)], pos);
         }
+
+        SFXLib.current.Play("tree_fall");
     }
 }
