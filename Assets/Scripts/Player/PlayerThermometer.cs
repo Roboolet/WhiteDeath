@@ -17,6 +17,7 @@ public class PlayerThermometer : Thermometer
     [SerializeField] Image overlayL, overlayR;
 
     float vcam_defaultSize;
+    GameOver gameOver;
 
     float smoothNormalizedColdness;
 
@@ -24,6 +25,7 @@ public class PlayerThermometer : Thermometer
     {
         vcam_defaultSize = vcam.m_Lens.OrthographicSize;
         vcam_noise = vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        gameOver = FindObjectOfType<GameOver>();
 
         entropyMultWeather = 1;
         SetEffects(0);
@@ -52,6 +54,7 @@ public class PlayerThermometer : Thermometer
     protected override void OnExceedMinTemp()
     {
         base.OnExceedMinTemp();
-        //game over
+        //game over trigger
+        gameOver.EndGame();
     }
 }
