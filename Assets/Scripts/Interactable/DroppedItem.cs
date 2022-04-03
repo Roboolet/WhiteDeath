@@ -11,7 +11,6 @@ public class DroppedItem: Interactable
     protected override void OnUse()
     {
         base.OnUse();
-        Debug.Log("gosh");
         Player.current.PickUp(item);
         Destroy(gameObject);
     }

@@ -31,7 +31,7 @@ public class Tree : Interactable
     {
         for (int i = 0; i < numDrops; i++)
         {
-            Vector2 pos = new Vector2(transform.position.x + Random.Range(-3f, -1), transform.position.y + Random.Range(-0.4f, 0.4f));
+            Vector2 pos = transform.position + Random.Range(-4f, -1) * transform.right + Random.Range(-0.4f, 0.4f) * transform.up;
             ItemDropper.current.DropItem(possibleDrops[Random.Range(0, possibleDrops.Length)], pos);
         }
     }
