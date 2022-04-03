@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
 
     public void Input_Interact(CallbackContext input)
     {
-        if (selected != null)
+        if (input.performed && selected != null)
         {
             if (heldItem == null) selected.Use();
             else
@@ -91,24 +91,21 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Input_Drop(CallbackContext input)
+    public void Input_Drop(CallbackContext input) => DropItem();
+
+    void DropItem()
     {
         if (heldItem != null)
         {
             ItemDropper.current.DropItem(heldItem, transform.position);
             heldItem = null;
         }
-        
     }
 
-    public bool TryPickUp(Item item)
+    public void PickUp(Item item)
     {
-        if (heldItem == null)
-        {
-            heldItem = item;
-            return true;
-        }
-        else return false;
+        DropItem();
+        heldItem = item;
     }
 
 
@@ -143,8 +140,12 @@ public class Player : MonoBehaviour
                     float dist = (transform.position - c.transform.position).sqrMagnitude;
                     if (dist < shortestDist)
                     {
-                        shortestDist = dist;
-                        output = c.GetComponent<Interactable>();
+                        Interactable inter = c.GetComponent<Interactable>();
+                        if (!inter.stopAllInteractions)
+                        {
+                            shortestDist = dist;
+                            output = inter;
+                        }
                     }
                 }
             }            

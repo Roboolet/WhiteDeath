@@ -21,9 +21,6 @@ public class Fireplace : Interactable
         base.Awake();
         heatSource = GetComponent<HeatSource>();
 
-        allowedInserts = new ItemType[] { ItemType.Burnable };
-        takeInsertedItem = true;
-
         flames_emission = flames.emission;
         flames_emissionOriginalROT = flames_emission.rateOverTimeMultiplier;
     }

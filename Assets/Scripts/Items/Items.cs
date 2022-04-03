@@ -12,6 +12,7 @@ namespace Items
     public enum ItemType
     {
         Undefined,
-        Burnable
+        Burnable,
+        Axe
     }
 }

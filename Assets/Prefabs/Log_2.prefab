@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deselectDistance: 2
   takeInsertedItem: 0
-  allowedInserts: 
+  allowedInserts: 000000000100000002000000
   spriteRenderer: {fileID: 3784171639054013307}
   sprite_primed: {fileID: 4508409484015463093, guid: 158781ea036afe841b2e02a6b052fb9c, type: 3}
   sprite_unprimed: {fileID: -8837245727107317360, guid: 158781ea036afe841b2e02a6b052fb9c, type: 3}

@@ -7,6 +7,7 @@ public abstract class Interactable : MonoBehaviour
 {
     public bool primed { get; private set; }
     public float deselectDistance;
+    public bool stopAllInteractions { get; protected set; }
 
     public bool takeInsertedItem;
     [SerializeField] protected ItemType[] allowedInserts;
