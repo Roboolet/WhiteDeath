@@ -160,6 +160,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ea0b03e95df28e64fa87ad6eebe714b7, type: 2}
   - {fileID: 11400000, guid: a80d2f42bc62d964db2fe78fed77bf50, type: 2}
   numDrops: 3
+  anim: {fileID: 3774029453208079834}
 --- !u!212 &3774029453208079831
 SpriteRenderer:
   m_ObjectHideFlags: 0

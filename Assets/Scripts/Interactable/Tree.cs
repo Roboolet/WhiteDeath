@@ -12,6 +12,9 @@ public class Tree : Interactable
     [Space]
     [SerializeField] Item[] possibleDrops;
     [SerializeField] int numDrops;
+    [Space]
+    [SerializeField] Animator anim;
+    bool canFall = true;
 
 
     protected override void OnInsert(Item item)
@@ -19,11 +22,12 @@ public class Tree : Interactable
         base.OnInsert(item);
         chopsLeft -= (item as Axe).hitsPerSwing;
 
-        if (chopsLeft <= 0)
+        if (chopsLeft <= 0 && canFall)
         {
             spriteRenderer.sprite = choppedSprite;
             stopAllInteractions = true;
-            GetComponent<Animator>().SetTrigger("Chopped");
+            anim.SetTrigger("Chopped");
+            canFall = false;
         }
     }
 
