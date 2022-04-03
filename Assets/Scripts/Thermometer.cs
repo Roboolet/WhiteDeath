@@ -7,7 +7,8 @@ public class Thermometer : MonoBehaviour
     [SerializeField] float startTemperature, temperatureMax, temperatureMin;
 
     [SerializeField] float entropy;
-    [HideInInspector] public float entropyMult = 1;
+    public float entropyMultShelter { get; set; }
+    public float entropyMultWeather { get; set; }
 
     float _Temperature;
     public float Temperature
@@ -29,7 +30,7 @@ public class Thermometer : MonoBehaviour
 
     private void Update()
     {
-        Temperature -= entropy * entropyMult * Time.deltaTime;
+        Temperature -= entropy * entropyMultShelter * entropyMultWeather * Time.deltaTime;
     }
 
     public void AddTemperature(float amount)

@@ -268,7 +268,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &175038696
 BoxCollider2D:
@@ -309,6 +309,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorLerp: 0.08
+  overlayL: {fileID: 1933436103}
+  overlayR: {fileID: 552471435}
   OnEntry:
     m_PersistentCalls:
       m_Calls:
@@ -336,6 +338,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 684445807}
+        m_TargetAssemblyTypeName: Thermometer, Assembly-CSharp
+        m_MethodName: set_entropyMultShelter
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.25
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnExit:
     m_PersistentCalls:
       m_Calls:
@@ -360,6 +374,18 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 684445807}
+        m_TargetAssemblyTypeName: Thermometer, Assembly-CSharp
+        m_MethodName: set_entropyMultShelter
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -5269,7 +5295,7 @@ Transform:
   - {fileID: 1235630885}
   - {fileID: 1415736939}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &399978810
 SpriteRenderer:
@@ -5460,7 +5486,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &422463376 stripped
 GameObject:
@@ -5670,7 +5696,7 @@ Transform:
   m_Children:
   - {fileID: 490352533}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -6035,7 +6061,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &684445805
 SpriteRenderer:
@@ -6134,14 +6160,14 @@ MonoBehaviour:
   startTemperature: 20
   temperatureMax: 20
   temperatureMin: -40
-  entropy: 0.3
-  entropyMult: 1
+  entropy: 0.5
   effectThreshold: 0.33
-  shakeRate: 1.6
+  effectSmoothing: 0.015
+  shakeRate: 2
   zoomRate: 0.65
-  overlayRate: 0.6
+  overlayRate: 1.5
   vcam: {fileID: 2045567037}
-  overlayL: {fileID: 0}
+  overlayL: {fileID: 1933436103}
   overlayR: {fileID: 552471435}
 --- !u!50 &684445808
 Rigidbody2D:
@@ -17025,7 +17051,7 @@ Transform:
   - {fileID: 1602763464}
   - {fileID: 2136111761}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1706774135
 MonoBehaviour:
@@ -17201,7 +17227,7 @@ RectTransform:
   - {fileID: 552471434}
   - {fileID: 1933436102}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -17403,7 +17429,7 @@ Transform:
   m_Children:
   - {fileID: 850113974}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2045567037
 MonoBehaviour:

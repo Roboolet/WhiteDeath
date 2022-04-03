@@ -8,6 +8,7 @@ public class PlayerThermometer : Thermometer
 {
     [Header("Effect Settings")]
     [SerializeField, Range(0, 1)] float effectThreshold;
+    [SerializeField, Range(0, 1)] float effectSmoothing;
     [SerializeField] float shakeRate, zoomRate, overlayRate;
 
     [Header("Effect References")]
@@ -16,6 +17,8 @@ public class PlayerThermometer : Thermometer
     [SerializeField] Image overlayL, overlayR;
 
     float vcam_defaultSize;
+
+    float smoothNormalizedColdness;
 
     private void Awake()
     {
@@ -27,11 +30,11 @@ public class PlayerThermometer : Thermometer
 
     private void LateUpdate()
     {
-        float thr = Mathf.Max(0, NormalizedColdness - effectThreshold);
+        smoothNormalizedColdness =  Mathf.Lerp(smoothNormalizedColdness, Mathf.Max(0, NormalizedColdness - effectThreshold), effectSmoothing);
 
-        if (thr != 0)
+        if (smoothNormalizedColdness != 0)
         {
-            SetEffects(thr);
+            SetEffects(smoothNormalizedColdness);
         }
     }
 
