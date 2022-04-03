@@ -84,11 +84,12 @@ public class Player : MonoBehaviour
         {
             if (heldItem == null) selected.Use();
             else
-            {
+            {                
                 if (selected.TryInsert(heldItem) && selected.takeInsertedItem)
                 {
                     heldItem = null;
                 }
+                else if (heldItem.type == ItemType.Axe) anim.SetTrigger("Chop");
             }
         }
     }
