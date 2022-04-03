@@ -157,6 +157,15 @@ public class Player : MonoBehaviour
         if (output != null) return true;
         else return false;
     }
+
+    public void Anim_Step()
+    {
+        if (RoofedAreaTrigger.isInRoofedArea)
+        {
+            SFXLib.current.Play("tree_hit");
+        }
+        else SFXLib.current.Play("step");
+    }
 }
 
 public enum AnimationDirection

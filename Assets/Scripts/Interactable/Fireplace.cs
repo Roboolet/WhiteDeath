@@ -34,6 +34,7 @@ public class Fireplace : Interactable
         flames.gameObject.SetActive(true);
         flames.Play();
         heatSource.isEmitting = true;
+        SFXLib.current.Play("burn");
     }
 
     private void Update()

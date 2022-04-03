@@ -6,9 +6,10 @@ using UnityEngine.UI;
 
 public class RoofedAreaTrigger : MonoBehaviour
 {
+    public static bool isInRoofedArea;
+
     [SerializeField] float colorLerp;
     [SerializeField] Image overlayL, overlayR;
-    bool playerIsInside = true;
     Camera mainCam;
 
     [SerializeField] UnityEvent OnEntry, OnExit;
@@ -16,12 +17,12 @@ public class RoofedAreaTrigger : MonoBehaviour
     private void Awake()
     {
         mainCam = Camera.main;
-        OnEntry.Invoke();
+        Enter();
     }
 
     private void LateUpdate()
     {
-        if (playerIsInside)
+        if (isInRoofedArea)
         {
             mainCam.backgroundColor = Color.Lerp(mainCam.backgroundColor, Color.black, colorLerp);
             overlayL.color = Color.Lerp(overlayL.color, Color.white, colorLerp);
@@ -35,12 +36,23 @@ public class RoofedAreaTrigger : MonoBehaviour
         }
     }
 
+    void Enter()
+    {
+        OnEntry.Invoke();
+        isInRoofedArea = true;
+    }
+
+    void Exit()
+    {
+        OnExit.Invoke();
+        isInRoofedArea = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            playerIsInside = true;
-            OnEntry.Invoke();
+            Enter();
         }
     }
 
@@ -48,8 +60,7 @@ public class RoofedAreaTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            playerIsInside = false;
-            OnExit.Invoke();
+            Exit();
         }
     }
 }

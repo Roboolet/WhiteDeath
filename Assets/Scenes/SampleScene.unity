@@ -6813,9 +6813,19 @@ MonoBehaviour:
   audioSource: {fileID: 677821117}
   _lib:
   - name: tree_fall
-    clip: {fileID: 8300000, guid: 7c76fce46f9d4fc4a9be3670a28e7c0c, type: 3}
+    clip:
+    - {fileID: 8300000, guid: 7c76fce46f9d4fc4a9be3670a28e7c0c, type: 3}
   - name: tree_hit
-    clip: {fileID: 8300000, guid: 9d751c235f9a3c6419e5f2dc281f7bfc, type: 3}
+    clip:
+    - {fileID: 8300000, guid: 9d751c235f9a3c6419e5f2dc281f7bfc, type: 3}
+  - name: step
+    clip:
+    - {fileID: 8300000, guid: d1c3f7662d29c2840ada5860adc4a254, type: 3}
+    - {fileID: 8300000, guid: aca6f833f70e7d44d852701463c44613, type: 3}
+    - {fileID: 8300000, guid: 5bbd7af9e500705449b4d594ed0876a5, type: 3}
+  - name: burn
+    clip:
+    - {fileID: 8300000, guid: 085a11622c78f5742954374f94ada213, type: 3}
 --- !u!4 &677821119
 Transform:
   m_ObjectHideFlags: 0

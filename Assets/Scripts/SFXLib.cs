@@ -7,7 +7,7 @@ public class SFXLib : MonoBehaviour
     public static SFXLib current;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioData[] _lib;
-    Dictionary<string, AudioClip> lib = new Dictionary<string, AudioClip>();
+    Dictionary<string, AudioClip[]> lib = new Dictionary<string, AudioClip[]>();
 
     private void Awake()
     {
@@ -22,7 +22,7 @@ public class SFXLib : MonoBehaviour
     {
         if (lib.ContainsKey(name))
         {
-            audioSource.PlayOneShot(lib[name], 1);
+            audioSource.PlayOneShot(lib[name][Random.Range(0,lib[name].Length)], 1);
         }
     }
 
@@ -32,5 +32,5 @@ public class SFXLib : MonoBehaviour
 public struct AudioData
 {
     public string name;
-    public AudioClip clip;
+    public AudioClip[] clip;
 }
