@@ -102,6 +102,7 @@ public class Player : MonoBehaviour
         {
             ItemDropper.current.DropItem(heldItem, transform.position);
             heldItem = null;
+            SFXLib.current.Play("grab");
         }
     }
 
@@ -109,6 +110,7 @@ public class Player : MonoBehaviour
     {
         DropItem();
         heldItem = item;
+        SFXLib.current.Play("grab");
     }
 
 

@@ -6826,6 +6826,10 @@ MonoBehaviour:
   - name: burn
     clip:
     - {fileID: 8300000, guid: 085a11622c78f5742954374f94ada213, type: 3}
+  - name: grab
+    clip:
+    - {fileID: 8300000, guid: 714caf606494fc141bf70bd3b738f41c, type: 3}
+    - {fileID: 8300000, guid: b52ec2fa6ea2bce448b78e06ff72c0f0, type: 3}
 --- !u!4 &677821119
 Transform:
   m_ObjectHideFlags: 0
