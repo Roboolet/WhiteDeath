@@ -22,7 +22,8 @@ public class Tree : Interactable
         }
     }
 
-    protected override void OnPrime() { }
+    public void Anim_Fall()
+    {
 
-    protected override void OnUnprime() { }
+    }
 }

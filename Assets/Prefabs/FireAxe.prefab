@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deselectDistance: 1
   takeInsertedItem: 0
+  onlyPrimeInsertions: 0
   allowedInserts: 000000000100000002000000
   spriteRenderer: {fileID: 3020751164720064254}
   sprite_primed: {fileID: -2488753832278676581, guid: 49f94295154770245be0fc086f0b9908, type: 3}
@@ -117,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStatic: 1
-  layerOffset: -3
+  layerOffset: 0
 --- !u!61 &-7186257874474841110
 BoxCollider2D:
   m_ObjectHideFlags: 0

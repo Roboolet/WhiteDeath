@@ -11,6 +11,9 @@ TextureImporter:
   - first:
       213: -6804362155169470884
     second: obj_tree_2
+  - first:
+      213: -6127079908986293366
+    second: obj_tree_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -77,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -89,7 +92,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -158,6 +161,27 @@ TextureImporter:
       bones: []
       spriteID: c562302cbac0291a0800000000000000
       internalID: -6804362155169470884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_tree_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a837072194d38faa0800000000000000
+      internalID: -6127079908986293366
       vertices: []
       indices: 
       edges: []

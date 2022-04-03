@@ -25,6 +25,7 @@ public class PlayerThermometer : Thermometer
         vcam_defaultSize = vcam.m_Lens.OrthographicSize;
         vcam_noise = vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
+        entropyMultWeather = 1;
         SetEffects(0);
     }
 

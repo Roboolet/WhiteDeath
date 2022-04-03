@@ -10,6 +10,7 @@ public abstract class Interactable : MonoBehaviour
     public bool stopAllInteractions { get; protected set; }
 
     public bool takeInsertedItem;
+    [SerializeField] bool onlyPrimeInsertions;
     [SerializeField] protected ItemType[] allowedInserts;
 
     [SerializeField] protected SpriteRenderer spriteRenderer;
@@ -19,10 +20,11 @@ public abstract class Interactable : MonoBehaviour
     {
     }
 
-    public void Prime()
+    public void Prime(bool hasItem)
     {
-        if (!primed)
-        {
+        if (onlyPrimeInsertions && !hasItem) return;
+        if (!primed && !stopAllInteractions)
+        {            
             primed = true;
             OnPrime();
         }
@@ -38,7 +40,7 @@ public abstract class Interactable : MonoBehaviour
 
     public void Unprime()
     {
-        if (primed)
+        if (primed && !stopAllInteractions)
         {
             primed = false;
             OnUnprime();

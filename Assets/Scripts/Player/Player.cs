@@ -74,6 +74,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         current = this;
+        
     }
 
     public void Input_Interact(CallbackContext input)
@@ -118,7 +119,7 @@ public class Player : MonoBehaviour
 
         if (selected != null)
         {
-            selected.Prime();
+            selected.Prime(heldItem != null);
         }
 
     }
